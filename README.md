@@ -1,1 +1,0 @@
-# snowflake-dfw-flight-pipeline

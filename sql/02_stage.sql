@@ -10,7 +10,7 @@ CREATE STORAGE INTEGRATION DFW_AZURE_INTEGRATION
   STORAGE_PROVIDER = 'AZURE'
   ENABLED = TRUE
   AZURE_TENANT_ID = '<your-azure-tenant-id>'
-  STORAGE_ALLOWED_LOCATIONS = ('azure://allpurposestorageaccount.blob.core.windows.net/dfw-flight-data/');
+  STORAGE_ALLOWED_LOCATIONS = ('azure://azurestorageaccount.blob.core.windows.net/dfw-flight-data/');
 
 -- After creating the integration, run the following and grant
 -- Snowflake's service principal access to the blob container in Azure:
@@ -28,5 +28,5 @@ CREATE OR REPLACE FILE FORMAT DFW_FLIGHTS.RAW.DFW_CSV_FORMAT
 -- External stage
 CREATE OR REPLACE STAGE DFW_FLIGHTS.RAW.DFW_RAW_STAGE
   STORAGE_INTEGRATION = DFW_AZURE_INTEGRATION
-  URL = 'azure://allpurposestorageaccount.blob.core.windows.net/dfw-flight-data/'
+  URL = 'azure://azurestorageaccount.blob.core.windows.net/dfw-flight-data/'
   FILE_FORMAT = DFW_FLIGHTS.RAW.DFW_CSV_FORMAT;
